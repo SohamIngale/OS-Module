@@ -1,0 +1,381 @@
+sohamingale@Adi:~/LinuxAssignment$ cat > file1.txt
+hi, this is file1^C
+sohamingale@Adi:~/LinuxAssignment$ cp file.txt docs
+cp: cannot stat 'file.txt': No such file or directory
+sohamingale@Adi:~/LinuxAssignment$ cp file1.txt docs
+sohamingale@Adi:~/LinuxAssignment$ cd docs
+sohamingale@Adi:~/LinuxAssignment/docs$ mv file1.txt file2.txt
+sohamingale@Adi:~/LinuxAssignment/docs$ ls
+file2.txt
+sohamingale@Adi:~/LinuxAssignment/docs$ cd ..
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ cd docs
+sohamingale@Adi:~/LinuxAssignment/docs$ chmod 744 file2.txt
+sohamingale@Adi:~/LinuxAssignment/docs$ ls -l
+total 0
+-rwxr--r-- 1 sohamingale sohamingale 0 Mar  7 19:01 file2.txt
+sohamingale@Adi:~/LinuxAssignment/docs$ sudo chown sohamingale file2.txt
+[sudo] password for sohamingale:
+sohamingale@Adi:~/LinuxAssignment/docs$ sudo chown gogo file2.txt
+chown: invalid user: ‘gogo’
+sohamingale@Adi:~/LinuxAssignment/docs$ cd ..
+sohamingale@Adi:~/LinuxAssignment$ tree
+.
+├── docs
+│   └── file2.txt
+└── file1.txt
+
+1 directory, 2 files
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ cd docs
+sohamingale@Adi:~/LinuxAssignment/docs$ ls
+file2.txt
+sohamingale@Adi:~/LinuxAssignment/docs$ date
+Thu Mar  7 19:08:42 IST 2024
+sohamingale@Adi:~/LinuxAssignment/docs$ ls *.txt
+file2.txt
+sohamingale@Adi:~/LinuxAssignment/docs$ cd ..
+sohamingale@Adi:~/LinuxAssignment$ ls *.txt
+file1.txt
+sohamingale@Adi:~/LinuxAssignment$ find . -type f -name ".txt"
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ find . -type f -name "*.txt"
+./docs/file2.txt
+./file1.txt
+sohamingale@Adi:~/LinuxAssignment$ ls -R | grep '\.txt$'
+file1.txt
+file2.txt
+sohamingale@Adi:~/LinuxAssignment$ grep "this" file1.txt
+sohamingale@Adi:~/LinuxAssignment$ cat file1.txt
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ cat >> file1.txt
+this is a new line
+^C
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ grep "this" file1.txt
+this is a new line
+sohamingale@Adi:~/LinuxAssignment$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1492
+        inet 172.23.81.149  netmask 255.255.240.0  broadcast 172.23.95.255
+        inet6 fe80::215:5dff:fe79:12da  prefixlen 64  scopeid 0x20<link>
+        ether 00:15:5d:79:12:da  txqueuelen 1000  (Ethernet)
+        RX packets 277  bytes 282611 (282.6 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 214  bytes 55644 (55.6 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+sohamingale@Adi:~/LinuxAssignment$ ping remote_server_address
+ping: remote_server_address: Name or service not known
+sohamingale@Adi:~/LinuxAssignment$ ping 172.23.95.255
+ping: Do you want to ping broadcast? Then -b. If not, check your local firewall rules
+sohamingale@Adi:~/LinuxAssignment$ n
+n: command not found
+sohamingale@Adi:~/LinuxAssignment$ no
+no: command not found
+sohamingale@Adi:~/LinuxAssignment$ ping 192.168.150.1
+PING 192.168.150.1 (192.168.150.1) 56(84) bytes of data.
+64 bytes from 192.168.150.1: icmp_seq=1 ttl=63 time=4.70 ms
+64 bytes from 192.168.150.1: icmp_seq=2 ttl=63 time=3.87 ms
+64 bytes from 192.168.150.1: icmp_seq=3 ttl=63 time=16.4 ms
+64 bytes from 192.168.150.1: icmp_seq=4 ttl=63 time=3.91 ms
+64 bytes from 192.168.150.1: icmp_seq=5 ttl=63 time=3.78 ms
+64 bytes from 192.168.150.1: icmp_seq=6 ttl=63 time=3.47 ms
+64 bytes from 192.168.150.1: icmp_seq=7 ttl=63 time=3.25 ms
+64 bytes from 192.168.150.1: icmp_seq=8 ttl=63 time=3.97 ms
+64 bytes from 192.168.150.1: icmp_seq=9 ttl=63 time=3.63 ms
+64 bytes from 192.168.150.1: icmp_seq=10 ttl=63 time=3.26 ms
+^C
+--- 192.168.150.1 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9014ms
+rtt min/avg/max/mdev = 3.248/5.019/16.355/3.799 ms
+sohamingale@Adi:~/LinuxAssignment$ man zip
+sohamingale@Adi:~/LinuxAssignment$ zip
+Copyright (c) 1990-2008 Info-ZIP - Type 'zip "-L"' for software license.
+Zip 3.0 (July 5th 2008). Usage:
+zip [-options] [-b path] [-t mmddyyyy] [-n suffixes] [zipfile list] [-xi list]
+  The default action is to add or replace zipfile entries from list, which
+  can include the special name - to compress standard input.
+  If zipfile and list are omitted, zip compresses stdin to stdout.
+  -f   freshen: only changed files  -u   update: only changed or new files
+  -d   delete entries in zipfile    -m   move into zipfile (delete OS files)
+  -r   recurse into directories     -j   junk (don't record) directory names
+  -0   store only                   -l   convert LF to CR LF (-ll CR LF to LF)
+  -1   compress faster              -9   compress better
+  -q   quiet operation              -v   verbose operation/print version info
+  -c   add one-line comments        -z   add zipfile comment
+  -@   read names from stdin        -o   make zipfile as old as latest entry
+  -x   exclude the following names  -i   include only the following names
+  -F   fix zipfile (-FF try harder) -D   do not add directory entries
+  -A   adjust self-extracting exe   -J   junk zipfile prefix (unzipsfx)
+  -T   test zipfile integrity       -X   eXclude eXtra file attributes
+  -y   store symbolic links as the link instead of the referenced file
+  -e   encrypt                      -n   don't compress these suffixes
+  -h2  show more help
+
+sohamingale@Adi:~/LinuxAssignment$ zip docs
+
+zip error: Nothing to do! (docs.zip)
+sohamingale@Adi:~/LinuxAssignment$ zip -r docs.zip doc
+        zip warning: name not matched: doc
+
+zip error: Nothing to do! (try: zip -r docs.zip . -i doc)
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ zip -r docs.zip docs
+  adding: docs/ (stored 0%)
+  adding: docs/file2.txt (stored 0%)
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ mkdir new
+sohamingale@Adi:~/LinuxAssignment$ unzip docs.zip -d extracted docs
+Archive:  docs.zip
+caution: filename not matched:  docs
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  file1.txt  new
+sohamingale@Adi:~/LinuxAssignment$ cd extracted
+sohamingale@Adi:~/LinuxAssignment/extracted$ ;s
+-bash: syntax error near unexpected token `;'
+sohamingale@Adi:~/LinuxAssignment/extracted$ ls
+sohamingale@Adi:~/LinuxAssignment/extracted$ cd ..
+sohamingale@Adi:~/LinuxAssignment$ unzip docs.zip -d extracted_docs
+Archive:  docs.zip
+   creating: extracted_docs/docs/
+ extracting: extracted_docs/docs/file2.txt
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  extracted_docs  file1.txt  new
+sohamingale@Adi:~/LinuxAssignment$ rm new
+rm: cannot remove 'new': Is a directory
+sohamingale@Adi:~/LinuxAssignment$ rmdir new
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  extracted_docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ rmdir extracted_docs
+rmdir: failed to remove 'extracted_docs': Directory not empty
+sohamingale@Adi:~/LinuxAssignment$ cd extracted_docs
+sohamingale@Adi:~/LinuxAssignment/extracted_docs$ ls
+docs
+sohamingale@Adi:~/LinuxAssignment/extracted_docs$ rmdir docs
+rmdir: failed to remove 'docs': Directory not empty
+sohamingale@Adi:~/LinuxAssignment/extracted_docs$ cd docs
+sohamingale@Adi:~/LinuxAssignment/extracted_docs/docs$ ls
+file2.txt
+sohamingale@Adi:~/LinuxAssignment/extracted_docs/docs$ rm file2.txt
+sohamingale@Adi:~/LinuxAssignment/extracted_docs/docs$ cd ..
+sohamingale@Adi:~/LinuxAssignment/extracted_docs$ rmdir docs
+sohamingale@Adi:~/LinuxAssignment/extracted_docs$ cd ..
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  extracted_docs  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ rmdir extracted_docs
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  file1.txt
+sohamingale@Adi:~/LinuxAssignment$ rmdir new
+rmdir: failed to remove 'new': No such file or directory
+sohamingale@Adi:~/LinuxAssignment$ mkdir docs
+mkdir: cannot create directory ‘docs’: File exists
+sohamingale@Adi:~/LinuxAssignment$ mkdir new
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  file1.txt  new
+sohamingale@Adi:~/LinuxAssignment$ unzip docs.zip -d new
+Archive:  docs.zip
+   creating: new/docs/
+ extracting: new/docs/file2.txt
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  file1.txt  new
+sohamingale@Adi:~/LinuxAssignment$ cd new
+sohamingale@Adi:~/LinuxAssignment/new$ ls
+docs
+sohamingale@Adi:~/LinuxAssignment/new$ cd ..
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  file1.txt  new
+sohamingale@Adi:~/LinuxAssignment$ sed 's/this/here/g' file1.txt
+here is a new line
+sohamingale@Adi:~/LinuxAssignment$ cat file1.txt
+this is a new line
+sohamingale@Adi:~/LinuxAssignment$ sed -i 's/this/here/g' file1.txt
+sohamingale@Adi:~/LinuxAssignment$ cat file1.txt
+here is a new line
+sohamingale@Adi:~/LinuxAssignment$ ls
+docs  docs.zip  extracted  file1.txt  new
+sohamingale@Adi:~/LinuxAssignment$ rmdir Assignment2
+rmdir: failed to remove 'Assignment2': No such file or directory
+sohamingale@Adi:~/LinuxAssignment$ mkdir Assignment2
+sohamingale@Adi:~/LinuxAssignment$ cd Assignment2/
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ touch data.txt
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ ls
+data.txt
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ rm data.txt
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat > data.txt
+the sun rises in the east, painting the sky with hues of orange and pink.
+birds chirp their morning songs, greeting the dawn with joyous melodies.
+dew glistens on the grass, sparkling like diamonds in the early light.
+a gentle breeze whispers through the trees, rustling leaves in its wake.
+the world awakens from its slumber, ready to embrace the new day.
+coffee brews, filling the air with its rich aroma, promising energy and warmth.
+people hustle and bustle, beginning their daily routines with purpose and determination.
+laughter echoes through the streets as children play and friends reunite.
+time ticks by, each moment a precious gift waiting to be unwrapped.
+and as the day fades into night, we cherish the memories made and look forward to tomorrow's adventures.^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ ls
+data.txt
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat data.txt
+the sun rises in the east, painting the sky with hues of orange and pink.
+birds chirp their morning songs, greeting the dawn with joyous melodies.
+dew glistens on the grass, sparkling like diamonds in the early light.
+a gentle breeze whispers through the trees, rustling leaves in its wake.
+the world awakens from its slumber, ready to embrace the new day.
+coffee brews, filling the air with its rich aroma, promising energy and warmth.
+people hustle and bustle, beginning their daily routines with purpose and determination.
+laughter echoes through the streets as children play and friends reunite.
+time ticks by, each moment a precious gift waiting to be unwrapped.
+and as the day fades into night, we cherish the memories made and look forward to tomorrow's adventures.sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat >> data.txt
+This is line 11
+this is line12
+^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat data.txt
+the sun rises in the east, painting the sky with hues of orange and pink.
+birds chirp their morning songs, greeting the dawn with joyous melodies.
+dew glistens on the grass, sparkling like diamonds in the early light.
+a gentle breeze whispers through the trees, rustling leaves in its wake.
+the world awakens from its slumber, ready to embrace the new day.
+coffee brews, filling the air with its rich aroma, promising energy and warmth.
+people hustle and bustle, beginning their daily routines with purpose and determination.
+laughter echoes through the streets as children play and friends reunite.
+time ticks by, each moment a precious gift waiting to be unwrapped.
+and as the day fades into night, we cherish the memories made and look forward to tomorrow's adventures.This is line 11
+this is line12
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ tail -5 data.txt
+laughter echoes through the streets as children play and friends reunite.
+time ticks by, each moment a precious gift waiting to be unwrapped.
+and as the day fades into night, we cherish the memories made and look forward to tomorrow's adventures.This is line 11
+this is line12
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat > numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ head -15 numbers.txt
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ tail -3 numbers.txt
+28
+29
+30
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat > duplicate.txt
+this is soham ingale on this side
+^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ tr '[:lower:]' '[:upper:]' < input.txt > output.txt
+-bash: input.txt: No such file or directory
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ tr '[:lower:]' '[:upper:]' < duplicate.txt > dup2.txt
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ ls
+data.txt  dup2.txt  duplicate.txt  numbers.txt
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat dup2.txt
+THIS IS SOHAM INGALE ON THIS SIDE
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat >> duplicate.txt
+this is soham ingale on this side
+hi
+hi
+how are you
+im fine thank you
+im fine thank you
+^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ man uniq
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ uniq -u
+^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ uniq -u duplicate.txt
+hi
+hi
+how are you
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ sort duplicate.txt | uniq
+hi
+hi
+how are you
+im fine thank you
+this is soham ingale on this side
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ sort -u duplicate.txt
+hi
+hi
+how are you
+im fine thank you
+this is soham ingale on this side
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ uniq -u duplicate.txt
+hi
+hi
+how are you
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat duplicate.txt
+this is soham ingale on this side
+this is soham ingale on this side
+hi
+hi
+how are you
+im fine thank you
+im fine thank you
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ cat > fruit.txt
+mango
+mango
+apple
+guava
+pineapple
+apple
+^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ sort fruit.txt | uniq -c
+      2 apple
+      1 guava
+      2 mango
+      1 pineapple
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ ^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ ^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$ ^C
+sohamingale@Adi:~/LinuxAssignment/Assignment2$
