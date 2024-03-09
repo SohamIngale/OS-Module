@@ -1,0 +1,235 @@
+								ASSIGNMENT 2
+
+
+									PART A
+
+-echo "Hello World" will display/print Hello World on Ubuntu cmd
+
+-name="Productive" assigning productive to variable "name"
+
+- touch file.txt create a file named "file"
+
+- ls -a : will list all files including the hidden ones
+
+- rm file.txt: remove file.txt
+
+- cp file1.txt file2.txt : will copy and paste contents of file1 in newly made file2
+
+- mv file.txt /path/to/directory/ : move file to different directory
+
+- chmod 755 script.sh : permision 7(wrx), 5(rx) to owner, group and other users respectively.
+
+- grep "pattern" file.txt: finds and highlights the respective text in the file
+
+-kill PID: command used to terminate a process identified by its unique process ID.
+
+-mkdir mydir && cd mydir && touch file.txt && echo "Hello, World!" > file.txt && cat file.txt : 
+	creates a new directory named "mydir" then changes current directory to mydir then create a 	file 	named "file.txt". Echo replaces any content of file.txt with "Hello World". cat command 	displays the content on screen.
+
+- ls -l | grep ".txt" : gives details of only .txt files including permissions, links, root user, size, etc
+
+-cat file1.txt file2.txt | sort | uniq :
+	cat file1 file2 command combines content, sort sorts it alphabetically
+	uniq command removes duplicate.
+
+-ls -l | grep "^d" : displays details of only those directories starting with letter "d".
+
+-grep -r "pattern" /path/to/directory/ : recursively searches for the specified "pattern" in all files within the specified directory and its subdirectories, displaying the matching lines along with their filenames.
+
+- cat file1.txt file2.txt | sort | uniq –d : combines contents of file1 and 2, sorts it alphabetically and displays only duplicate lines in both files.
+
+- chmod 644 file.txt - owner(rw) group&user(r & r)
+
+- cp -r source_directory destination_directory : 
+	copies the contents of source_directory recursively to destination_directory, including all subdir and files within them.
+
+- find /path/to/search -name "*.txt" : searches for files with ".txt" extension into a directory specified by 'path/tp/search' and its subdirs.
+
+- chmod u+x file.txt : give all permissions to user for file.txt
+
+-  echo $PATH : displays value of PATH environment variable.
+
+
+
+
+
+
+
+									PART B
+
+
+
+
+TRUE/FALSE
+
+1. TRUE
+2. TRUE
+3. FALSE
+4. TRUE
+5. TRUE
+6. TRUE
+7. TRUE
+8. TRUE
+
+
+
+
+CORRECT INCORRECT COMAMNDS:
+					corrections:
+1.  incorrect			chmod
+2. incorrect			cp
+3. incorrect			touch
+4. incorrect			cat
+5. incorrect			mv
+
+
+
+
+
+
+
+
+
+									PART C
+
+Q1: 
+#!/bin/bash
+
+echo "Hello, World"
+
+
+Q2:
+#!/bin/bash
+
+name="CDAC Mumbai"
+echo $name
+
+
+Q3:
+#!/bin/bash
+
+echo "enter num1:"
+read n1
+echo "num is: $n1"
+
+
+Q4:
+#!/bin/bash
+
+echo "enter num1:"
+read n1
+echo "enter num2:"
+read n2
+((sum=$n1+$n2))
+echo "sum is: $sum"
+
+
+Q5:
+#!/bin/bash
+
+echo "enter num:"
+read n1
+if (($n1%2==0));
+then
+        echo "even"
+else
+        echo "odd"
+fi
+
+
+Q6:
+#!/bin/bash
+
+for((i=0; i<=5; i++))
+do
+        echo $i
+done
+
+
+Q7:
+#!/bin/bash
+x=1
+while [[ $x -lt 6 ]];
+do
+        echo $x
+        let x+=1
+done
+
+Q8:
+#!/bin/bash
+
+if [ -e "q1.txt" ]; then
+        echo "File Exists";
+else
+        echo "File not found";
+fi
+
+
+Q9:
+#!/bin/bash
+
+echo "enter num: "
+read num
+
+if [ $num -gt 10 ]
+then
+        echo " number is gt 10 "
+else
+        echo " number is lt 10 "
+fi
+
+
+Q10:
+#!/bin/bash
+
+for i in {1..5}; do
+        echo "Mult. table for $i:"
+        for j in {1..10}; do
+                result=$((i * j))
+                echo "$i x $j = $result"
+        done
+        echo
+done
+
+
+Q11:
+#!/bin/bash
+
+echo "enter a num(enter a negative num to exit): "
+
+while true; do
+        read number
+
+        if [ $number -lt 0 ]; then
+                echo "exiting the loop";
+                break
+        fi
+
+        square=$((number * number))
+
+        echo "square of $number is: $square"
+        echo "enter another number(enter a negative num to exit: "
+done
+
+
+
+									PART E (photos in git)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
